@@ -66,6 +66,7 @@ function toRawType (value) {
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
  */
+// 与isObject区别是这个可以NULL
 function isPlainObject (obj) {
   return _toString.call(obj) === '[object Object]'
 }
@@ -77,6 +78,7 @@ function isRegExp (v) {
 /**
  * Check if val is a valid array index.
  */
+//是否是索引
 function isValidArrayIndex (val) {
   var n = parseFloat(String(val));
   return n >= 0 && Math.floor(n) === n && isFinite(val)
