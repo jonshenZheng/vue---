@@ -91,7 +91,7 @@ function toString (val) {
   return val == null
     ? ''
     : typeof val === 'object'
-      ? JSON.stringify(val, null, 2)
+      ? JSON.stringify(val, null, 2)  //这里的null也可以空字符串，占个位置，这里主要想设置2个缩进
       : String(val)
 }
 
@@ -138,7 +138,7 @@ var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
  * Remove an item from an array
  */
 function remove (arr, item) {
-  if (arr.length) {
+  if (arr.length) { //这个判断得不准确
     var index = arr.indexOf(item);
     if (index > -1) {
       return arr.splice(index, 1)
@@ -185,7 +185,7 @@ var capitalize = cached(function (str) {
  */
 var hyphenateRE = /\B([A-Z])/g;
 var hyphenate = cached(function (str) {
-  return str.replace(hyphenateRE, '-$1').toLowerCase()
+  return str.replace(hyphenateRE, '-$1').toLowerCase() //-$1 是什么意思？
 });
 
 /**
@@ -246,16 +246,19 @@ function toObject (arr) {
  * Stubbing args to make Flow happy without leaving useless transpiled code
  * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/)
  */
+//使引用该函数的变量是一个函数，就不用每次去写function(){},
 function noop (a, b, c) {}
 
 /**
  * Always return false.
  */
+//使引用该函数都会返回false
 var no = function (a, b, c) { return false; };
 
 /**
  * Return same value
  */
+//使引用该函数都会返回入参的值
 var identity = function (_) { return _; };
 
 /**
