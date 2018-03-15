@@ -325,6 +325,10 @@ function once (fn) {
       called = true;
       fn.apply(this, arguments);
     }
+    //这个分支看看能不能移除闭包，还没试过
+    else{
+      return null;
+    }
   }
 }
 
@@ -539,7 +543,7 @@ var formatComponentName = (noop);
     while (n) {
       if (n % 2 === 1) { res += str; }
       if (n > 1) { str += str; }
-      n >>= 1;
+      n >>= 1; //相当于除2取余数
     }
     return res
   };
