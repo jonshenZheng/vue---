@@ -674,7 +674,7 @@ var isServerRendering = function () {
 };
 
 // detect devtools
-var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__; //__VUE_DEVTOOLS_GLOBAL_HOOK__这个值什么时候有的，为什么要这个？
 
 /* istanbul ignore next */
 function isNative (Ctor) {
